@@ -68,11 +68,19 @@
 		var boundLayout = $.proxy(this.layout, this);
 
 		WinResizer.register(boundLayout);
-		this.element.on('click', 'li:not(.tabdrop)', boundLayout);
-
+		//this event fires to early to catch active tab clicked in bs v3+
+		//this.element.on('click', 'li:not(.tabdrop)', boundLayout);
+		//this will wait for bs v3+ event to finish and then run.
+		this.element.on('shown.bs.tab', function (e) {
+      boundLayout();
+    });
+    
 		this.teardown = function () {
 			WinResizer.unregister(boundLayout);
-			this.element.off('click', 'li:not(.tabdrop)', boundLayout);
+			//this.element.off('click', 'li:not(.tabdrop)', boundLayout);
+			this.element.off('shown.bs.tab', function (e) {
+        boundLayout();
+      });
 		};
 
 		this.layout();
