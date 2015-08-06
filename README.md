@@ -11,9 +11,11 @@ Added functionality: Displays the text of an active tab selected from the dropdo
 
 Added functionality: Allows customizable offset to determine whether tab is overflown or not.
 
+@rkenney fixed the drop down tab not showing the correct text due to the bootstrap event firing after the tabdrop event. The only issue someone may have is if they want to use it with bootstrap v2 since the events are not the same names.
+
 ## Requirements
 
-* [Bootstrap](http://twitter.github.com/bootstrap/) 2.0.4+
+* [Bootstrap](http://twitter.github.com/bootstrap/) 3+
 * [jQuery](http://jquery.com/) 1.7.1+
 
 ## Example
