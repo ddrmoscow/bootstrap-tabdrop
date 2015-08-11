@@ -79,7 +79,7 @@ Type: bool
 Default: false
 
 When tabdrop is used with bootstrap 3 the original click event fires before the bs.shown event and the active dropdown item is displayed wrong.
-By setting the option usingBoostrap3 to true the layout call will be run after the bootstrap event and the correct active dropdown item text will be shown.
+By setting the option usingBoostrap3 to true the layout call will be ran after the bootstrap event and the correct active dropdown item text will be shown.
 ```js
 $('.nav-tabs').tabdrop({usingBoostrap3: true});
 ```
