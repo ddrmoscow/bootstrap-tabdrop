@@ -67,6 +67,11 @@ when initalizing the tabdrop. The tab will align on the left or right. This addr
 Type: integer
 
 Default: 0
+To change the default value, call
+```javascript
+.tabdrop({offsetTop: N});
+```
+when initalizing the tabdrop. This determines when tab has to be included in the dropdown.
 
 #### usingBoostrap3
 Type: bool
@@ -78,12 +83,6 @@ By setting the option usingBoostrap3 to true the layout call will be run after t
 ```js
 $('.nav-tabs').tabdrop({usingBoostrap3: true});
 ```
-
-To change the default value, call
-```javascript
-.tabdrop({offsetTop: N});
-```
-when initalizing the tabdrop. This determines when tab has to be included in the dropdown.
 
 ### Methods
 
