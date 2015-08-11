@@ -66,7 +66,18 @@ when initalizing the tabdrop. The tab will align on the left or right. This addr
 #### offsetTop 
 Type: integer
 
-Default: 0 
+Default: 0
+
+#### usingBoostrap3
+Type: bool
+
+Default: false
+
+When tabdrop is used with bootstrap 3 the original click event fires before the bs.shown event and the active dropdown item is displayed wrong.
+By setting the option usingBoostrap3 to true the layout call will be run after the bootstrap event and the correct active dropdown item text will be shown.
+```js
+$('.nav-tabs').tabdrop({usingBoostrap3: true});
+```
 
 To change the default value, call
 ```javascript
