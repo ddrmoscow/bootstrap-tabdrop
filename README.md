@@ -11,7 +11,7 @@ Added functionality: Displays the text of an active tab selected from the dropdo
 
 Added functionality: Allows customizable offset to determine whether tab is overflown or not.
 
-@rkenney fixed the drop down tab not showing the correct text due to the bootstrap event firing after the tabdrop event. The only issue someone may have is if they want to use it with bootstrap v2 since the events are not the same names.
+@rkenney fixed the drop down tab not showing the correct text due to the bootstrap event firing after the tabdrop event.
 
 ## Requirements
 
@@ -73,15 +73,27 @@ To change the default value, call
 ```
 when initalizing the tabdrop. This determines when tab has to be included in the dropdown.
 
-#### usingBoostrap3
+#### usingBootstrap2
 Type: bool
 
 Default: false
 
-When tabdrop is used with bootstrap 3 the original click event fires before the bs.shown event and the active dropdown item is displayed wrong.
-By setting the option usingBoostrap3 to true the layout call will be ran after the bootstrap event and the correct active dropdown item text will be shown.
+When tabdrop is used with bootstrap 2 the original click event fires before the shown event of the tab and the active dropdown item is displayed wrong.
+By setting the option usingBootstrap2 to true the layout call will be ran after the bootstrap event and the correct active dropdown item text will be shown.
 ```js
-$('.nav-tabs').tabdrop({usingBoostrap3: true});
+$('.nav-tabs').tabdrop({usingBootstrap2: true});
+```
+
+
+#### usingBootstrap3
+Type: bool
+
+Default: false
+
+When tabdrop is used with bootstrap 3 the original click event fires before the bs.shown tab event and the active dropdown item is displayed wrong.
+By setting the option usingBootstrap3 to true the layout call will be ran after the bootstrap event and the correct active dropdown item text will be shown.
+```js
+$('.nav-tabs').tabdrop({usingBootstrap3: true});
 ```
 
 ### Methods
