@@ -68,22 +68,35 @@
         var boundLayout = $.proxy(this.layout, this);
 
         WinResizer.register(boundLayout);
-        //check fro bs 3 usage.
-        if (!this.options.usingBoostrap3) {
+        //check for bs 2 or 3 usage.
+        if (!this.options.usingBootstrap3 && !this.options.usingBootstrap2) {
             this.element.on('click', 'li:not(.tabdrop)', boundLayout);
-        } else {
-            //this will wait for bs v3+ event to finish and then run.
-            this.element.on('shown.bs.tab', boundLayout);
         }
-        
+        else {
+            if (this.options.usingBootstrap3) {
+                //this will wait for bs v3+ event to finish and then run.
+                this.element.on('shown.bs.tab', boundLayout);
+            } else {
+                // this will wait for bs 2 event
+                this.element.on('shown', boundLayout);
+            }
+        }
+
 
         this.teardown = function () {
             WinResizer.unregister(boundLayout);
-            //check for bs 3 usage
-            if (!this.options.usingBoostrap3) {
+            //check for bs 2 or 3 usage.
+            if (!this.options.usingBootstrap3 && !this.options.usingBootstrap2) {
                 this.element.off('click', 'li:not(.tabdrop)', boundLayout);
-            } else {
-                this.element.off('shown.bs.tab', boundLayout);
+            }
+            else {
+                if (this.options.usingBootstrap3) {
+                    //this will wait for bs v3+ event to finish and then run.
+                    this.element.off('shown.bs.tab', boundLayout);
+                } else {
+                    // this will wait for bs 2 event
+                    this.element.off('shown', boundLayout);
+                }
             }
         };
 
@@ -180,8 +193,9 @@
     $.fn.tabdrop.defaults = {
         text: '<i class="fa fa-align-justify"></i>',
         offsetTop: 0,
-        //added option falg for bs3 usage
-        usingBoostrap3 : false
+        //added flags for bs 2 and 3.
+        usingBootstrap2: false,
+        usingBootstrap3: false
     };
 
     $.fn.tabdrop.Constructor = TabDrop;
