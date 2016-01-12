@@ -13,10 +13,16 @@ Added functionality: Allows customizable offset to determine whether tab is over
 
 @rkenney fixed the drop down tab not showing the correct text due to the bootstrap event firing after the tabdrop event.
 
+Cropped for bootstrap3+ usage only !!!
+
 ## Requirements
 
-* [Bootstrap](http://twitter.github.com/bootstrap/) 2.3.3+
+* [Bootstrap](http://twitter.github.com/bootstrap/) 3.2+
 * [jQuery](http://jquery.com/) 1.7.1+
+
+## Used:
+
+* [Fontawesome] ()
 
 ## Example
 
@@ -44,9 +50,9 @@ Call the tabdrop with options:
 #### text 
 Type: string
 
-Default: icon 
+Default: icon Fontawesome
 ```html
-<i class="icon-align-justify"></i>
+<i class="fa fa-fw fa-align-justify"></i>
 ```
 To change the default value, call
 ```javascript
@@ -73,28 +79,10 @@ To change the default value, call
 ```
 when initalizing the tabdrop. This determines when tab has to be included in the dropdown.
 
-#### usingBootstrap2
-Type: bool
+#### usingBootstrap3+ ONLY
 
-Default: false
-
-When tabdrop is used with bootstrap 2 the original click event fires before the shown event of the tab and the active dropdown item is displayed wrong.
-By setting the option usingBootstrap2 to true the layout call will be ran after the bootstrap event and the correct active dropdown item text will be shown.
-```js
-$('.nav-tabs').tabdrop({usingBootstrap2: true});
-```
-
-
-#### usingBootstrap3
-Type: bool
-
-Default: false
-
-When tabdrop is used with bootstrap 3 the original click event fires before the bs.shown tab event and the active dropdown item is displayed wrong.
-By setting the option usingBootstrap3 to true the layout call will be ran after the bootstrap event and the correct active dropdown item text will be shown.
-```js
-$('.nav-tabs').tabdrop({usingBootstrap3: true});
-```
+With bootstrap 3 the original click event fires before the bs.shown tab event and the active dropdown item is displayed wrong.
+Now the layout call will be ran after the bootstrap event and the correct active dropdown item text will be shown.
 
 ### Methods
 
